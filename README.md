@@ -36,7 +36,7 @@ python manage.py runserver
 
 ```
 
-## Setting up the Django "posts" Application
+## Setting up the Django "comments" Application
 
 ```bash
 cd comments
