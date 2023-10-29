@@ -15,7 +15,7 @@ function App() {
 
     const createPost = async (e) => {
         e.preventDefault();
-
+    
         const res = await fetch('http://localhost:8000/api/posts', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -24,12 +24,17 @@ function App() {
                 description,
             })
         });
-
+    
         const createdPost = await res.json();
-
+    
+        // Initialize 'comments' as an empty array if it's undefined
+        if (!createdPost.comments) {
+            createdPost.comments = [];
+        }
+    
         setPosts([...posts, createdPost]);
     }
-
+    
     const deletePost = async (postId) => {
         // Send a DELETE request to remove the post with the given ID from the server
         await fetch(`http://localhost:8000/api/posts/${postId}`, {
