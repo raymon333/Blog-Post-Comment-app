@@ -1,4 +1,4 @@
-# postscommentsmicroservice
+# Blog-Post-Comment-app
 
 This project consists of three parts:
 1. Django "posts" application
