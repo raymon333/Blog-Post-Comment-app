@@ -19,3 +19,4 @@ EXPOSE 8001
 
 # Define the command to start the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
+
