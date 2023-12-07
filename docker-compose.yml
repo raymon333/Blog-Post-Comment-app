@@ -1,37 +1,19 @@
-version: '3.8'
-
+version: "3.3"
 services:
+  jangocomment:
+    container_name: "jangocomment"
+    build: .
+    ports:
+      - 8001:8000
+
+  front-image:
+    container_name: "front-image"
+    build: .
+    ports:
+      - 3000:3000
+
   posts:
-    build:
-      context: .
-      dockerfile: posts
+    container_name: "posts"
+    build: .
     ports:
-      - "8000:8000"
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/app
-    environment:
-      - PYTHONDONTWRITEBYTECODE=1
-      - PYTHONUNBUFFERED=1
-
-  comments:
-    build:
-      context: .
-      dockerfile: comments
-    ports:
-      - "8001:8001"
-    command: python manage.py runserver 0.0.0.0:8001
-    volumes:
-      - .:/app
-    environment:
-      - PYTHONDONTWRITEBYTECODE=1
-      - PYTHONUNBUFFERED=1
-
-  frontend:
-    build:
-      context: .
-      dockerfile: frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - .:/app
+      - 8000:8000
